@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Job Listing
 
-## Getting Started
+This project is a job management application built with **Next.js**, **Redux Toolkit**, **Faker.js** (for generating test data), and **SQLite** (for storing real data).
 
-First, run the development server:
+## 🔧 Technologies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js** (App Router, Server Actions)
+- **TypeScript**
+- **Redux Toolkit** (state management)
+- **Faker.js** (test data generation)
+- **SQLite** (job storage)
+- **Tailwind CSS** (styling)
+
+## 📂 Project Structure
+
+```
+📦 src
+ ┣ 📂 components        # Basic components
+ ┣ 📂 ui                # UI components
+ ┣ 📂 pages
+ ┃ ┣ 📂 api
+ ┃      ┣ 📂 jobs
+ ┃      ┗ 📜 index.ts   # API for fetching jobs
+ ┃      ┗ 📜 [id].ts    # API for updating a job
+ ┃
+ ┣ 📂 redux
+ ┃ ┣ 📜 jobSlice.ts     # Redux slice for job management
+ ┃ ┗ 📜 store.ts        # Redux store
+ ┗ 📜 layout.tsx        # Main layout
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 How to Run the Project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Install Dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm install
+```
 
-## Learn More
+### 2. Start in Development Mode
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The application will be available at: [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📜 API Routes
 
-## Deploy on Vercel
+| Method | Route          | Description    |
+| ------ | -------------- | -------------- |
+| GET    | `/api/jobs`    | Fetch all jobs |
+| PUT    | `/api/jobs/id` | Add a new job  |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠 Redux Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All jobs are stored in the Redux store. When the page loads, the application fetches data from the API.
+
+```tsx
+const jobs = useSelector((state: RootState) => state.jobs.jobs);
+dispatch(setJobs(jobsList));
+```
+
+---
+
+Let me know if you need any modifications! 🚀
