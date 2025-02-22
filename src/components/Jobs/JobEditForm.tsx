@@ -25,6 +25,11 @@ export const JobEditForm: React.FC<JobEditFormProps> = ({ job, onClose }) => {
     description: string;
   }) => {
     try {
+      if (values.title === job.name && values.description === job.description) {
+        toast.error("No changes were made to the vacancy.");
+        return;
+      }
+
       await updateJobById(job.id, values.title, values.description);
       dispatch(
         updateJob({

@@ -45,6 +45,28 @@ npm run dev
 
 The application will be available at: [http://localhost:3000](http://localhost:3000)
 
+If you do not have pip installed, you may encounter an error when installing dependencies. It is recommended to use a virtual environment for your Python projects.
+
+To create a new virtual environment, run the following command:
+
+```bash
+python -m venv myenv
+```
+
+Then activate it:
+
+```bash
+source myenv/bin/activate
+```
+
+Once the virtual environment is activated, you can install the dependencies by running:
+
+```bash
+npm i
+```
+
+---
+
 ## 📜 API Routes
 
 | Method | Route          | Description    |
